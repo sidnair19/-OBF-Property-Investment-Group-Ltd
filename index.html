@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rooms in Cork City | OBF Properties</title>
+<meta name="description" content="Rooms and bed spaces available in Cork City, managed locally by OBF Property Investment Group. See prices, energy ratings and travel times, and enquire in one step.">
+<meta property="og:title" content="Rooms in Cork City | OBF Properties">
+<meta property="og:description" content="Bed spaces available now across Cork City. Enquire in one step.">
+<meta property="og:image" content="assets/obf-logo.png">
+<link rel="icon" href="assets/obf-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#100E27; --navy-deep:#0A0918; --navy-panel:#211E44; --navy-line:#2A2750;
+  --gold:#C1B067; --gold-text:#7A6A2C;
+  --ink:#100E27; --muted:#4A5A64; --line:#E3E8EA; --soft:#F3F6F5; --photo:#E7EDEB;
+  --on-dark:#C9CCDA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;margin:0;line-height:1.15}
+p{margin:0}
+a{color:var(--gold-text)}a:hover{color:#5C4F1F}
+img{max-width:100%}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{scroll-margin-top:96px}
+.section{padding:96px 0}
+.eyebrow{color:var(--gold-text);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.on-dark .eyebrow{color:var(--gold)}
+.h2{font-weight:800;font-size:40px}
+.lead{color:var(--muted);font-size:18px}
+.head{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:700;border-radius:12px;padding:16px 26px;font-size:17px;border:0;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:#D2C27E;color:var(--navy)}
+.btn-ghost{border:2px solid #4A4778;color:#fff;padding:14px 24px;font-weight:600}.btn-ghost:hover{color:#fff;border-color:var(--gold)}
+
+/* top bar + header */
+.topbar{background:var(--navy-deep);color:#D5D7E2;font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center;padding-top:10px;padding-bottom:10px}
+.topbar a{color:#D5D7E2;text-decoration:none}
+.topbar .group{display:flex;flex-wrap:wrap;gap:8px 24px}
+header.site{background:var(--navy);border-bottom:1px solid var(--navy-line);position:sticky;top:0;z-index:20}
+header.site .wrap{display:flex;gap:16px 32px;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px}
+.logo img{height:76px;width:auto;display:block}
+nav.main{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:center;font-weight:500;font-size:15px}
+nav.main a{color:#fff;text-decoration:none;padding:10px 0}
+nav.main a:hover{color:var(--gold)}
+nav.main a.btn{padding:12px 20px;font-size:15px;color:var(--navy)}
+.menu-btn{display:none;background:none;border:2px solid #4A4778;color:#fff;border-radius:10px;width:48px;height:48px;align-items:center;justify-content:center;cursor:pointer}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--navy);flex-direction:column;align-items:stretch;padding:8px 24px 24px;border-bottom:1px solid var(--navy-line)}
+  nav.main.open{display:flex}
+  nav.main a{padding:14px 0;border-bottom:1px solid var(--navy-line)}
+  nav.main a.btn{margin-top:12px;border:0}
+  .logo img{height:60px}
+}
+
+/* hero */
+.hero{background:var(--navy);color:#fff}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:88px;padding-bottom:96px}
+.hero-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.pill{align-self:flex-start;background:var(--navy-panel);color:#E3D7A8;font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px}
+.hero h1{font-weight:800;font-size:54px;line-height:1.08;letter-spacing:-1px}
+.hero .sub{font-size:19px;color:var(--on-dark);max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.avail{flex:1 1 380px;min-width:0;background:#fff;color:var(--ink);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px}
+.avail .count{display:flex;align-items:baseline;gap:14px}
+.avail .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:72px;line-height:1}
+.avail .num-label{font-weight:600;font-size:18px;line-height:1.3}
+.avail hr{border:0;height:1px;background:var(--line);margin:0}
+.ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.ticks li{display:flex;gap:12px;align-items:flex-start}
+.ticks svg{color:var(--gold-text);margin-top:2px}
+.small{font-size:13px;color:var(--muted)}
+@media (max-width:600px){.hero h1{font-size:38px}.h2{font-size:30px}.hero .wrap{padding-top:56px;padding-bottom:64px}.section{padding:64px 0}}
+
+/* trust strip */
+.strip{background:var(--soft);border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding-top:28px;padding-bottom:28px}
+.strip strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:26px}
+.strip span{color:var(--muted);font-size:15px}
+
+/* rooms */
+.rooms-head{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.rooms-head .head{margin-bottom:0}
+.badge-count{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px}
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+@media (max-width:380px){.grid-cards{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.card .photo{height:210px;background:var(--photo);display:flex;align-items:center;justify-content:center;position:relative;color:var(--muted);font-size:15px;font-weight:500}
+.card .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:14px;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+.tag.ber{left:14px;background:#fff;color:var(--ink)}
+.tag.beds{right:14px;background:var(--navy);color:#fff;font-weight:600}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card h3{font-weight:700;font-size:21px}
+.card .area{color:var(--muted);font-size:15px}
+.card .price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px}
+.facts{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;font-size:14px;color:#33444E}
+.travel{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.travel .label{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.travel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;color:#33444E}
+.travel li{display:flex;justify-content:space-between;gap:12px}
+.travel li b{color:var(--ink);white-space:nowrap}
+.travel a{font-size:14px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.travel a svg{width:16px;height:16px}
+.card .btn{margin-top:auto;padding:14px;font-size:16px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.step{background:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.step .n{width:40px;height:40px;border-radius:999px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.step h3{font-size:19px}
+.step p{color:var(--muted)}
+
+/* enquire */
+.enq{display:flex;flex-wrap:wrap;gap:48px}
+.enq-side{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.contact-opts{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.contact-opts a{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.contact-opts a:hover{border-color:var(--gold)}
+.contact-opts svg{color:var(--gold-text)}
+.contact-opts strong{display:block;font-weight:600}
+.contact-opts span{font-size:14px;color:var(--muted)}
+.form-box{flex:1 1 520px;min-width:0;background:var(--soft);border-radius:20px;padding:36px}
+@media (max-width:600px){.form-box{padding:22px}}
+form{display:flex;flex-direction:column;gap:18px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:600;font-size:15px}
+.field input,.field select,.field textarea{height:48px;padding:0 14px;border:1px solid #B9C5CA;border-radius:10px;background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+.field textarea{height:auto;padding:12px 14px;resize:vertical}
+input:focus,select:focus,textarea:focus,a:focus-visible,button:focus-visible{outline:3px solid #D9C88A;outline-offset:2px}
+.picked{background:#fff;border:1px solid #E3D8B8;border-radius:12px;padding:12px 16px;font-size:15px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#33444E}
+.consent input{width:22px;height:22px;margin:0;flex:none}
+.error{background:#FDECEC;color:#8A1F1F;border-radius:10px;padding:12px 14px;font-size:15px}
+.hp{position:absolute;left:-9999px}
+.thanks{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:24px 0}
+.thanks .tick{width:56px;height:56px;border-radius:999px;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center}
+.thanks h3{font-size:28px}
+.thanks p{color:var(--muted);font-size:17px}
+.btn-outline{height:48px;padding:0 20px;border:1px solid #B9C5CA;border-radius:10px;background:#fff;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit}
+[hidden]{display:none!important}
+
+/* about */
+.dark{background:var(--navy);color:#fff}
+.about{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.about-text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.about-text p{color:var(--on-dark);font-size:18px}
+.stats{flex:1 1 400px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.stat{background:var(--navy-panel);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.stat strong{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:34px}
+.stat span{color:var(--on-dark)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+@media (max-width:380px){.services{grid-template-columns:1fr}}
+.service{border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.service h3{font-size:20px}
+.service p{color:var(--muted)}
+
+/* project */
+.project{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.project .photo{flex:1 1 460px;min-width:0;height:360px;border-radius:20px;background:#DCE5E2;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:500;overflow:hidden}
+.project .photo img{width:100%;height:100%;object-fit:cover}
+.project-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.project-text .pill2{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+.project-text h2{font-weight:800;font-size:36px}
+
+/* owners */
+.owners{display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:space-between}
+.owners-text{flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.owners-text h2{font-weight:800;font-size:38px}
+.owners-text p{color:var(--on-dark);font-size:18px}
+.owners-ctas{flex:0 1 320px;display:flex;flex-direction:column;gap:12px}
+
+/* contact */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:24px}
+.contact{border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:8px}
+.contact .role{color:var(--muted);font-size:14px;font-weight:600}
+.contact h3{font-size:22px}
+.contact .phone{color:var(--ink);font-weight:600;text-decoration:none}
+.map{width:100%;height:320px;border:0;border-radius:20px;display:block;background:var(--photo)}
+
+/* footer */
+footer{background:var(--navy-deep);color:var(--on-dark)}
+footer .wrap{padding-top:56px;padding-bottom:32px;display:flex;flex-direction:column;gap:32px}
+footer .top{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between}
+footer .name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#fff;display:block;margin-bottom:8px}
+footer nav{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
+footer a{color:var(--on-dark)}footer a:hover{color:var(--gold)}
+footer hr{border:0;height:1px;background:var(--navy-line);margin:0}
+
+/* floating WhatsApp button */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:30;background:var(--gold);color:var(--navy);border-radius:999px;padding:14px 18px;display:flex;gap:8px;align-items:center;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(16,14,39,.25)}
+.wa-float:hover{color:var(--navy);background:#D2C27E}
+@media (max-width:600px){.wa-float span{display:none}.wa-float{padding:16px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="group">
+      <a href="tel:+353874770865">087 477 0865</a>
+      <a href="mailto:office@obfproperty.ie">office@obfproperty.ie</a>
+      <span>Hanover House, 85–89 South Main Street, Cork</span>
+    </div>
+    <a href="https://linkedin.com/company/obfltd" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap" style="position:relative">
+    <a class="logo" href="#top" aria-label="OBF Properties home"><img src="assets/obf-logo.png" alt="OBF Properties" width="78" height="76"></a>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+    </button>
+    <nav class="main" id="main-nav" aria-label="Main">
+      <a href="#rooms">Rooms in Cork</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#owners">Property owners</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-gold" href="#enquire">Enquire now</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="pill">Cork City · Rooms available now</span>
+      <h1>Rooms and bed spaces in Cork City, managed by a local team.</h1>
+      <p class="sub">OBF Property has <span class="js-beds">49</span> bed spaces available across Cork City. Choose a room, send one quick enquiry, and our Cork office will call you back to arrange a viewing.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#rooms">See available rooms</a>
+        <a class="btn btn-ghost" href="https://wa.me/353874770865" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg>Message us on WhatsApp</a>
+      </div>
+    </div>
+    <div class="avail">
+      <div class="count"><span class="num js-beds">49</span><span class="num-label">bed spaces<br>available now</span></div>
+      <hr>
+      <ul class="ticks">
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Managed from our office on South Main Street, Cork</li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Repairs handled by our own maintenance team</li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Viewings arranged by phone or WhatsApp</li>
+      </ul>
+      <a class="btn btn-gold" href="#enquire">Request a room</a>
+      <span class="small" style="text-align:center">Availability updated <span class="js-updated">[date]</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-label="About OBF at a glance">
+  <div class="wrap">
+    <div><strong>Since 2015</strong><span>Building and managing property in Ireland</span></div>
+    <div><strong>50–100 staff</strong><span>Management, maintenance and support</span></div>
+    <div><strong>Munster &amp; Leinster</strong><span>Cork, Limerick, Dublin, Mallow, Charleville and more</span></div>
+    <div><strong>One team</strong><span>Lettings, upkeep and tenant support under one roof</span></div>
+  </div>
+</section>
+
+<section class="section" id="rooms">
+  <div class="wrap">
+    <div class="rooms-head">
+      <div class="head">
+        <span class="eyebrow">Available now</span>
+        <h2 class="h2">Rooms in Cork City</h2>
+        <p class="lead">Every property below is managed by OBF directly. See the price, what's included, the energy rating and travel times, then enquire in one step.</p>
+      </div>
+      <span class="badge-count"><span class="js-beds">49</span> beds across <span class="js-prop-count">6</span> properties</span>
+    </div>
+    <div class="grid-cards" id="cards"></div>
+    <p style="margin-top:32px;color:var(--muted);font-size:15px">Don't see what you need? <a href="#enquire">Tell us what you're looking for</a> and we'll match you with the next free bed.</p>
+  </div>
+</section>
+
+<section class="section" id="how" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Simple process</span>
+      <h2 class="h2">From enquiry to keys in four steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Pick a room</h3><p>Browse the properties above and choose the one that suits your budget and location.</p></div>
+      <div class="step"><span class="n">2</span><h3>Send one enquiry</h3><p>Fill in the short form or message us on WhatsApp. It takes under a minute.</p></div>
+      <div class="step"><span class="n">3</span><h3>We call you back</h3><p>Our Cork office replies within <span class="js-reply">[24 hours]</span> to answer questions and book a viewing.</p></div>
+      <div class="step"><span class="n">4</span><h3>View and move in</h3><p>See the room, sign your agreement and collect your keys.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="enquire">
+  <div class="wrap enq">
+    <div class="enq-side">
+      <span class="eyebrow">Enquire</span>
+      <h2 class="h2">Request a room</h2>
+      <p class="lead">Tell us a little about yourself and when you'd like to move. We'll come back to you with availability and a viewing time.</p>
+      <div class="contact-opts">
+        <a href="tel:+353874770865"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg><span><strong>Call 087 477 0865</strong><span>Mon–Fri, [9am–5:30pm]</span></span></a>
+        <a href="https://wa.me/353874770865" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg><span><strong>WhatsApp us</strong><span>Ask anything, any time</span></span></a>
+        <a href="mailto:office@obfproperty.ie"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg><span><strong>office@obfproperty.ie</strong><span>We reply to every email</span></span></a>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <form id="enquiry-form" novalidate>
+        <div class="picked" id="picked" hidden>Enquiring about: <strong id="picked-name"></strong></div>
+        <div class="fields">
+          <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone or WhatsApp *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-property">Property</label><select id="f-property" name="property"><option>Any available bed</option></select></div>
+          <div class="field"><label for="f-movein">Move-in date</label><input id="f-movein" name="move_in_date" type="date"></div>
+          <div class="field"><label for="f-stay">How long do you need it?</label><select id="f-stay" name="length_of_stay"><option>Not sure yet</option><option>Under 3 months</option><option>3–6 months</option><option>6–12 months</option><option>12 months or more</option></select></div>
+          <div class="field"><label for="f-people">Number of people</label><select id="f-people" name="people"><option>1</option><option>2</option><option>3</option><option>4 or more</option></select></div>
+          <div class="field"><label for="f-budget">Monthly budget (€)</label><input id="f-budget" name="budget" type="text" inputmode="numeric"></div>
+        </div>
+        <div class="field"><label for="f-message">Anything else we should know?</label><textarea id="f-message" name="message" rows="4"></textarea></div>
+        <!-- Spam trap: real people never see or fill this -->
+        <div class="hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="consent" for="f-consent"><input id="f-consent" name="consent" type="checkbox" value="yes">I agree that OBF Property may contact me about this enquiry, as set out in the <a href="privacy.html">privacy policy</a>. *</label>
+        <p class="error" id="form-error" role="alert" hidden></p>
+        <button class="btn btn-gold" type="submit" id="submit-btn">Send enquiry</button>
+        <span class="small">* Required. Your details go only to the OBF lettings team.</span>
+      </form>
+
+      <div class="thanks" id="thanks" hidden tabindex="-1">
+        <span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M20 6 9 17l-5-5"></path></svg></span>
+        <h3 id="thanks-title">Thanks — we've got your enquiry.</h3>
+        <p>Someone from our Cork office will call you within <span class="js-reply">[24 hours]</span>. If it's urgent, message us on WhatsApp.</p>
+        <button class="btn-outline" type="button" id="again">Send another enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark on-dark" id="about">
+  <div class="wrap about">
+    <div class="about-text">
+      <span class="eyebrow">About OBF</span>
+      <h2 class="h2">Property is about people, progress and purpose.</h2>
+      <p>Since 2015, OBF Property Investment Group has been building communities, transforming properties and creating opportunities across the Republic of Ireland. From hotels to homes, emergency housing to commercial units, we offer full-spectrum property solutions for private and public needs.</p>
+      <p>Based in Cork, we operate across Munster and Leinster — Cork City, Limerick City, Charleville, Mallow, Dublin City and more. Through our sister companies we run The Dutch Tulip Hotel in Mallow and the Bella Vista Hotel in Cobh, and we actively support government initiatives to tackle homelessness through emergency and short-term accommodation.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>2015</strong><span>Established in Cork</span></div>
+      <div class="stat"><strong>50–100</strong><span>Professionals on our team</span></div>
+      <div class="stat"><strong>5+</strong><span>Cities and towns served</span></div>
+      <div class="stat"><strong>Turnkey</strong><span>Investment to maintenance, one roof</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What we do</span>
+      <h2 class="h2">Every stage of the property lifecycle</h2>
+    </div>
+    <div class="services">
+      <div class="service"><h3>Residential Rentals</h3><p>Rooms, homes and apartments let and managed by our own team, with tenant support throughout.</p></div>
+      <div class="service"><h3>Emergency &amp; Short-term Accommodation</h3><p>Working with public bodies to provide emergency and short-term housing across Ireland.</p></div>
+      <div class="service"><h3>Hospitality &amp; Hotels</h3><p>Through our sister companies we run The Dutch Tulip Hotel, Mallow, and the Bella Vista Hotel, Cobh.</p></div>
+      <div class="service"><h3>Commercial Property</h3><p>Commercial units for businesses, from city-centre ground floors to standalone spaces.</p></div>
+      <div class="service"><h3>Property Investment</h3><p>Sourcing, acquiring and growing a portfolio responsibly and sustainably.</p></div>
+      <div class="service"><h3>Construction &amp; Design</h3><p>Renovation and conversion work that brings vacant buildings back into use.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--soft)">
+  <div class="wrap project">
+    <div class="photo">Add Bridge Street project photo</div>
+    <div class="project-text">
+      <span class="pill2">Project in progress</span>
+      <h2>Bridge Street, Cork: from vacant bank to 12 new homes</h2>
+      <p class="lead">We're converting the upper three floors of the former Bank of Ireland building on Bridge Street into 12 one- and two-bedroom apartments, with a restaurant at street level — a few minutes' walk from Patrick's Street and MacCurtain Street.</p>
+      <a href="#contact" style="font-weight:600">Register interest in Bridge Street →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section dark on-dark" id="owners" style="padding:88px 0">
+  <div class="wrap owners">
+    <div class="owners-text">
+      <span class="eyebrow">For property owners</span>
+      <h2>Selling a property, or looking for an investment partner?</h2>
+      <p>We welcome property owners looking to sell or to work with us on a strategic partnership. Talk to us about investment, management or lettings for your property.</p>
+    </div>
+    <div class="owners-ctas">
+      <a class="btn btn-gold" href="tel:+353874770865">Call 087 477 0865</a>
+      <a class="btn btn-ghost" href="mailto:office@obfproperty.ie">Email office@obfproperty.ie</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Contact</span>
+      <h2 class="h2">Talk to our Cork office</h2>
+    </div>
+    <div class="contacts">
+      <div class="contact"><span class="role">Call or WhatsApp</span><h3>Mridul</h3><a class="phone" href="tel:+353874770865">087 477 0865</a><a href="mailto:office@obfproperty.ie">office@obfproperty.ie</a></div>
+      <div class="contact"><span class="role">Call or email</span><h3>Donal</h3><a class="phone" href="tel:+353871700652">087 170 0652</a><a href="mailto:donal@obfproperty.ie">donal@obfproperty.ie</a></div>
+      <div class="contact"><span class="role">Visit us</span><h3>Hanover House</h3><span>1st Floor, 85–89 South Main Street</span><span>Cork, T12 E39F</span></div>
+    </div>
+    <iframe class="map" title="Map of OBF Property office, South Main Street, Cork" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hanover+House,+85-89+South+Main+Street,+Cork+T12+E39F&output=embed"></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div style="max-width:360px"><span class="name">OBF Property Investment Group Ltd.</span><span style="font-size:15px">Your trusted partner in property investment, development and accommodation across Ireland.</span></div>
+      <nav aria-label="Footer">
+        <a href="#rooms">Rooms in Cork</a>
+        <a href="#enquire">Enquire</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#owners">Property owners</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy policy</a>
+      </nav>
+    </div>
+    <hr>
+    <span style="font-size:14px">© <span id="year">2026</span> OBF Property. All rights reserved.</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/353874770865" rel="noopener" aria-label="Message OBF on WhatsApp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg><span>WhatsApp us</span></a>
+
+<script>
+/* =====================================================================
+   EDIT YOUR DETAILS HERE
+   Change the text between the quote marks. Keep the quote marks and commas.
+   ===================================================================== */
+
+// Total bed spaces available right now (shown in 3 places on the page)
+var TOTAL_BEDS = 49;
+
+// When you last updated availability, e.g. "7 November 2026"
+var UPDATED = "[date]";
+
+// How fast the office replies, e.g. "24 hours"
+var REPLY_TIME = "[24 hours]";
+
+// Where enquiries are sent. Leave empty ("") until it is set up —
+// see the guide (HOW-TO-PUT-THIS-LIVE.md). While empty, the form opens
+// the visitor's email app with the enquiry addressed to OFFICE_EMAIL.
+var FORM_ENDPOINT = "";
+var OFFICE_EMAIL = "office@obfproperty.ie";
+
+// Your properties. Copy one { ... } block to add another; delete one to remove it.
+// photo: put the photo file in the "assets" folder and write its name, e.g. "assets/douglas-house.jpg"
+// eircode: used for the "Open in Google Maps" link
+var PROPERTIES = [
+  { name: "[Property 1 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } },
+  { name: "[Property 2 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } },
+  { name: "[Property 3 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } },
+  { name: "[Property 4 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } },
+  { name: "[Property 5 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } },
+  { name: "[Property 6 name]", area: "[Area], Cork City", eircode: "[Eircode]", bedsFree: "[X] beds free",
+    price: "€[price] / month", roomType: "[Single / twin room]", bills: "Bills [included]",
+    minStay: "Min. stay [X] months", from: "From [date]", ber: "[rating]", photo: "",
+    travel: { centre: "[X] min walk", ucc: "[X] min walk", mtu: "[X] min bus", cuh: "[X] min bus", kent: "[X] min walk" } }
+];
+
+/* ===================== Nothing below needs editing ===================== */
+(function () {
+  var TRAVEL_LABELS = [
+    ["centre", "City centre (Patrick's St)"], ["ucc", "UCC"], ["mtu", "MTU Bishopstown"],
+    ["cuh", "Cork University Hospital"], ["kent", "Kent Station"]
+  ];
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function setAll(sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); }
+
+  setAll(".js-beds", TOTAL_BEDS);
+  setAll(".js-updated", UPDATED);
+  setAll(".js-reply", REPLY_TIME);
+  setAll(".js-prop-count", PROPERTIES.length);
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile menu
+  var menuBtn = document.querySelector(".menu-btn"), nav = document.getElementById("main-nav");
+  menuBtn.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); } });
+
+  // Property cards + dropdown
+  var cards = document.getElementById("cards"), select = document.getElementById("f-property");
+  var pin = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>';
+  cards.innerHTML = PROPERTIES.map(function (p, i) {
+    var travel = TRAVEL_LABELS.map(function (t) {
+      return '<li><span>' + esc(t[1]) + '</span><b>' + esc((p.travel || {})[t[0]] || "") + '</b></li>';
+    }).join("");
+    var mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.eircode + ", Cork");
+    var photo = p.photo ? '<img src="' + esc(p.photo) + '" alt="' + esc(p.name) + ', ' + esc(p.area) + '" loading="lazy">' : '<span>Add property photo</span>';
+    return '<article class="card">' +
+      '<div class="photo">' + photo + '<span class="tag ber">BER ' + esc(p.ber) + '</span><span class="tag beds">' + esc(p.bedsFree) + '</span></div>' +
+      '<div class="body">' +
+        '<div><h3>' + esc(p.name) + '</h3><span class="area">' + esc(p.area) + '</span></div>' +
+        '<span class="price">' + esc(p.price) + '</span>' +
+        '<ul class="facts"><li>' + esc(p.roomType) + '</li><li>' + esc(p.bills) + '</li><li>' + esc(p.minStay) + '</li><li>' + esc(p.from) + '</li></ul>' +
+        '<div class="travel"><span class="label">Travel times · Google Maps</span><ul>' + travel + '</ul>' +
+          '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">' + pin + 'Open in Google Maps</a></div>' +
+        '<a class="btn btn-gold" href="#enquire" data-pick="' + i + '">Enquire about this property</a>' +
+      '</div></article>';
+  }).join("");
+  PROPERTIES.forEach(function (p) { var o = document.createElement("option"); o.textContent = p.name; select.appendChild(o); });
+
+  var picked = document.getElementById("picked"), pickedName = document.getElementById("picked-name");
+  function showPick() {
+    var v = select.value;
+    picked.hidden = v === "Any available bed";
+    pickedName.textContent = v;
+  }
+  cards.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-pick]");
+    if (a) { select.value = PROPERTIES[+a.getAttribute("data-pick")].name; showPick(); }
+  });
+  select.addEventListener("change", showPick);
+
+  // Form
+  var form = document.getElementById("enquiry-form"), err = document.getElementById("form-error");
+  var thanks = document.getElementById("thanks"), btn = document.getElementById("submit-btn");
+  function showError(msg) { err.textContent = msg; err.hidden = false; }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    var d = new FormData(form);
+    if (d.get("company")) return; // spam bot
+    if (!String(d.get("name") || "").trim() || !String(d.get("phone") || "").trim() || !d.get("consent")) {
+      showError("Please add your name and phone number, and tick the consent box."); return;
+    }
+    d.delete("company");
+    var first = String(d.get("name")).trim().split(" ")[0];
+    function done() {
+      document.getElementById("thanks-title").textContent = "Thanks, " + first + " — we've got your enquiry.";
+      form.hidden = true; thanks.hidden = false; thanks.focus();
+    }
+    if (!FORM_ENDPOINT) {
+      var lines = []; d.forEach(function (v, k) { lines.push(k.replace(/_/g, " ") + ": " + v); });
+      window.location.href = "mailto:" + OFFICE_EMAIL + "?subject=" + encodeURIComponent("Room enquiry – " + d.get("property")) + "&body=" + encodeURIComponent(lines.join("\n"));
+      done(); return;
+    }
+    btn.disabled = true; btn.textContent = "Sending…";
+    fetch(FORM_ENDPOINT, { method: "POST", body: d, headers: { "Accept": "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error(); done(); })
+      .catch(function () { showError("Sorry, that didn't send. Please call 087 477 0865 or WhatsApp us."); })
+      .then(function () { btn.disabled = false; btn.textContent = "Send enquiry"; });
+  });
+  document.getElementById("again").addEventListener("click", function () {
+    form.reset(); showPick(); thanks.hidden = true; form.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
