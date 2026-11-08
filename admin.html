@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Property Manager | OBF Properties</title>
+<link rel="icon" href="assets/obf-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#100E27;--navy-line:#2A2750;--gold:#C1B067;--gold-hover:#D2C27E;--gold-text:#7A6A2C;--ink:#100E27;--muted:#4F5866;--line:#E3E0D6;--soft:#F7F5EF;--bg:#F4F3EE;--ok:#1E6B45;--okbg:#E5F4EB;--warn:#8A5A00;--warnbg:#FFF4D6;--bad:#8A1F1F;--badbg:#FDECEC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;margin:0;line-height:1.2}
+p{margin:0}
+a{color:var(--gold-text)}
+button,input,select,textarea{font:inherit}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+[hidden]{display:none!important}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:10px;border:0;font-weight:600;cursor:pointer;text-decoration:none;font-size:15px;white-space:nowrap}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-hover)}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:#221F4A}
+.btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn-line:hover{border-color:var(--ink)}
+.btn-danger{background:#fff;color:var(--bad);border:1.5px solid #EBC5C5}.btn-danger:hover{background:var(--badbg)}
+.btn-sm{min-height:38px;padding:6px 12px;font-size:14px}
+.icon-btn{width:38px;height:38px;padding:0;border-radius:9px;border:1.5px solid var(--line);background:#fff;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icon-btn:hover{border-color:var(--ink)}.icon-btn:disabled{opacity:.35;cursor:default}
+
+/* top bar */
+.bar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
+.bar-in{max-width:1180px;margin:0 auto;padding:6px 20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand img{height:54px;width:auto}
+.brand span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{background:none;border:0;color:#D5D7E2;padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:8px}
+.tab:hover{color:#fff;background:#1B1940}
+.tab[aria-current="page"]{background:#1B1940;color:var(--gold)}
+.count-badge{background:var(--gold);color:var(--navy);border-radius:999px;font-size:12px;font-weight:800;padding:1px 8px}
+.bar-right{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px}
+.bar-right a{color:#D5D7E2}.bar-right a:hover{color:var(--gold)}
+.bar-right .who{color:#9EA2B8}
+.bar-right button{background:none;border:1.5px solid #4A4778;color:#fff;border-radius:9px;padding:6px 12px;cursor:pointer}
+
+.banner{background:var(--warnbg);color:var(--warn);border-bottom:1px solid #EBD9A4;font-size:15px}
+.banner div{max-width:1180px;margin:0 auto;padding:10px 20px}
+main{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+.page-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:24px}
+.page-head h1{font-size:30px}
+.page-head p{color:var(--muted);margin-top:4px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px}
+
+/* login */
+.login{max-width:420px;margin:48px auto;padding:36px;display:flex;flex-direction:column;gap:18px}
+.login img{height:80px;align-self:center;background:var(--navy);border-radius:14px;padding:6px 10px}
+
+/* forms */
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.lbl{font-weight:600;font-size:14px}
+.field .hint{font-size:13px;color:var(--muted)}
+.field input,.field select,.field textarea{height:46px;padding:0 12px;border:1.5px solid #D2CEC2;border-radius:10px;background:#fff;color:var(--ink);font-size:16px;width:100%}
+.field textarea{height:auto;padding:10px 12px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(193,176,103,.3)}
+.field.bad input,.field.bad select{border-color:#C24141}
+.req{color:#B33}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.msg{border-radius:10px;padding:12px 14px;font-size:15px}
+.msg.err{background:var(--badbg);color:var(--bad)}
+.msg.ok{background:var(--okbg);color:var(--ok)}
+
+/* property list */
+.summary{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.sum{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;min-width:170px}
+.sum strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:26px}
+.sum span{color:var(--muted);font-size:14px}
+.rows{display:flex;flex-direction:column;gap:12px}
+.row{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.row .thumb{width:120px;height:84px;border-radius:10px;overflow:hidden;background:var(--navy);flex:none;display:flex;align-items:center;justify-content:center;color:#9EA2B8;font-size:12px;text-align:center}
+.row .thumb img{width:100%;height:100%;object-fit:cover}
+.row .info{flex:1 1 240px;min-width:0}
+.row .info h3{font-size:17px}
+.row .meta{color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700}
+.pill.on{background:var(--okbg);color:var(--ok)}
+.pill.off{background:#ECECF1;color:#4A4A5A}
+.row .acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.empty{text-align:center;padding:56px 20px;color:var(--muted)}
+.empty h2{color:var(--ink);font-size:22px;margin-bottom:8px}
+
+/* editor */
+.ed{display:flex;flex-direction:column;gap:20px}
+.sec{padding:24px}
+.sec h2{font-size:19px;margin-bottom:4px}
+.sec .sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+.drop{border:2px dashed #CFC8AE;border-radius:14px;background:var(--soft);padding:28px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;transition:background .2s,border-color .2s}
+.drop:hover,.drop.over{background:#F1ECDA;border-color:var(--gold)}
+.drop svg{width:34px;height:34px;color:var(--gold-text)}
+.drop strong{font-size:16px}
+.drop span{color:var(--muted);font-size:14px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:16px}
+.ph{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.ph .img{position:relative;height:120px;background:var(--navy)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .cover{position:absolute;left:8px;top:8px;background:var(--gold);color:var(--navy);font-size:12px;font-weight:800;padding:3px 8px;border-radius:7px}
+.ph .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:600;background:rgba(16,14,39,.6)}
+.ph .tools{display:flex;gap:6px;padding:8px;justify-content:space-between;flex-wrap:wrap}
+.ph .tools .icon-btn{width:34px;height:34px}
+.mapwrap{display:flex;flex-wrap:wrap;gap:16px}
+.mapwrap .fields{flex:1 1 320px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.mapwrap iframe{flex:1 1 360px;min-height:280px;border:0;border-radius:14px;background:var(--soft)}
+.travel{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.travel .field a{font-size:13px;font-weight:600}
+.feats{display:flex;flex-wrap:wrap;gap:10px}
+.chk{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:14px;font-weight:500;background:#fff;user-select:none}
+.chk input{width:18px;height:18px;margin:0;accent-color:var(--navy)}
+.chk:has(input:checked){border-color:var(--navy);background:#F0EFF7}
+.switch{display:flex;gap:12px;align-items:center;font-weight:600}
+.switch input{width:22px;height:22px;accent-color:var(--ok)}
+.savebar{position:sticky;bottom:0;background:rgba(244,243,238,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:14px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;z-index:10}
+
+/* enquiries */
+.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:18px}
+.filters .field{min-width:200px}
+.leads{display:flex;flex-direction:column;gap:12px}
+.lead{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.lead.new{border-left:5px solid var(--gold)}
+.lead-top{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:space-between;align-items:center}
+.lead-top h3{font-size:18px}
+.lead-top time{color:var(--muted);font-size:14px;margin-left:10px;font-family:Inter,sans-serif;font-weight:400}
+.lead-top select{height:40px;border:1.5px solid var(--line);border-radius:9px;padding:0 10px;background:#fff}
+.lead dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 20px;margin:0}
+.lead dt{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.lead dd{margin:2px 0 0;font-size:15px;word-break:break-word}
+.lead .msgtxt{background:var(--soft);border-radius:10px;padding:10px 14px;font-size:15px;white-space:pre-line}
+.lead .acts{display:flex;flex-wrap:wrap;gap:8px}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 20px;border-radius:12px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:50;max-width:calc(100% - 32px)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="index.html"><img src="assets/obf-logo.png" alt="OBF Properties"><span>Property Manager</span></a>
+    <nav class="tabs" id="tabs" aria-label="Sections" hidden>
+      <button class="tab" type="button" data-view="properties" aria-current="page">Properties</button>
+      <button class="tab" type="button" data-view="enquiries">Enquiries <span class="count-badge" id="new-count" hidden></span></button>
+    </nav>
+    <div class="bar-right">
+      <a href="index.html" target="_blank" rel="noopener">View website ↗</a>
+      <span class="who" id="who"></span>
+      <button type="button" id="signout" hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<div class="banner" id="banner" hidden><div id="banner-text"></div></div>
+
+<main>
+
+  <!-- LOGIN -->
+  <section class="panel login" id="v-login" hidden>
+    <img src="assets/obf-logo.png" alt="OBF Properties">
+    <h1 style="font-size:24px;text-align:center">Sign in to manage properties</h1>
+    <form id="login-form" style="display:flex;flex-direction:column;gap:16px">
+      <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password" required></div>
+      <p class="msg err" id="login-err" role="alert" hidden></p>
+      <button class="btn btn-navy" type="submit" id="login-btn">Sign in</button>
+    </form>
+  </section>
+
+  <!-- PROPERTY LIST -->
+  <section id="v-properties" hidden>
+    <div class="page-head">
+      <div><h1>Properties</h1><p>Add, edit or hide properties. Changes show on the website straight away.</p></div>
+      <button class="btn btn-gold" type="button" id="add-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add property</button>
+    </div>
+    <div class="summary" id="summary"></div>
+    <div class="rows" id="rows"></div>
+    <div class="panel empty" id="rows-empty" hidden>
+      <h2>No properties yet</h2>
+      <p>Click <strong>Add property</strong> to upload photos and details of your first property.</p>
+    </div>
+  </section>
+
+  <!-- EDITOR -->
+  <section id="v-editor" hidden>
+    <div class="page-head">
+      <div><h1 id="ed-title">Add property</h1><p>Fields marked <span class="req">*</span> are required.</p></div>
+      <button class="btn btn-line" type="button" id="ed-back">← Back to properties</button>
+    </div>
+    <form class="ed" id="ed-form" novalidate>
+
+      <div class="panel sec">
+        <h2>Photos</h2>
+        <p class="sub">The first photo is the cover shown on the website. Use the arrows to change the order. Photos are resized automatically.</p>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept="image/*" multiple>
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"></path></svg>
+          <strong>Click to choose photos, or drag them here</strong>
+          <span>JPG or PNG · you can select several at once</span>
+        </label>
+        <div class="photos" id="photos"></div>
+      </div>
+
+      <div class="panel sec">
+        <h2>Property details</h2>
+        <p class="sub">What visitors see on the listing card.</p>
+        <div class="grid">
+          <div class="field" data-req="name"><label for="p-name">Property name <span class="req">*</span></label><input id="p-name" maxlength="80" placeholder="e.g. Douglas Road House"></div>
+          <div class="field" data-req="area"><label for="p-area">Area <span class="req">*</span></label><input id="p-area" maxlength="60" placeholder="e.g. Douglas, Cork" list="areas"><datalist id="areas"></datalist></div>
+          <div class="field"><label for="p-type">Room type</label><input id="p-type" maxlength="60" list="types" placeholder="Choose or type"><datalist id="types"><option value="Single room"><option value="Double room"><option value="Twin room (shared)"><option value="Ensuite room"><option value="Bed in shared room"><option value="Studio"><option value="Whole apartment"></datalist></div>
+          <div class="field" data-req="beds_free"><label for="p-beds">Beds free now <span class="req">*</span></label><input id="p-beds" type="number" min="0" max="500" inputmode="numeric"><span class="hint">Set to 0 when fully let</span></div>
+          <div class="field" data-req="price"><label for="p-price">Price (€) <span class="req">*</span></label><input id="p-price" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 650"></div>
+          <div class="field"><label for="p-period">Price is per</label><select id="p-period"><option value="month">Month</option><option value="week">Week</option></select></div>
+          <div class="field"><label for="p-bills">Bills</label><select id="p-bills"><option>Bills included</option><option>Some bills included</option><option>Bills not included</option></select></div>
+          <div class="field"><label for="p-minstay">Minimum stay</label><input id="p-minstay" maxlength="40" placeholder="e.g. 6 months"></div>
+          <div class="field"><label for="p-from">Available from</label><input id="p-from" type="date"><span class="hint">Leave empty if available now</span></div>
+          <div class="field" data-req="ber"><label for="p-ber">BER rating <span class="req">*</span></label><select id="p-ber"><option value="">Choose…</option><option>A1</option><option>A2</option><option>A3</option><option>B1</option><option>B2</option><option>B3</option><option>C1</option><option>C2</option><option>C3</option><option>D1</option><option>D2</option><option>E1</option><option>E2</option><option>F</option><option>G</option><option>Exempt</option></select><span class="hint">Required by law in Irish rental ads</span></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label for="p-desc">Description</label><textarea id="p-desc" rows="5" maxlength="2000" placeholder="Describe the rooms, the house and the neighbourhood."></textarea></div>
+        <div style="margin-top:18px"><span class="lbl">Features</span><div class="feats" id="feats" style="margin-top:10px"></div></div>
+      </div>
+
+      <div class="panel sec">
+        <h2>Location (Google Maps)</h2>
+        <p class="sub">Type the Eircode or address — the map updates as you type. You can also paste a Google Maps link to the exact spot.</p>
+        <div class="mapwrap">
+          <div class="fields">
+            <div class="field" data-req="address"><label for="p-address">Eircode or address <span class="req">*</span></label><input id="p-address" maxlength="160" placeholder="e.g. T12 AB34"></div>
+            <div class="field"><label for="p-maplink">Google Maps link (optional)</label><input id="p-maplink" type="url" maxlength="500" placeholder="https://maps.app.goo.gl/…"><span class="hint">In Google Maps: find the property → Share → Copy link</span></div>
+            <p class="hint" style="font-size:13px;color:var(--muted)">Visitors see this map on the property's page, plus an "Open in Google Maps" button.</p>
+          </div>
+          <iframe id="map-preview" title="Map preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="panel sec">
+        <h2>Travel times</h2>
+        <p class="sub">Click "Check on Google Maps" to see the time, then type it in — e.g. "8 min walk" or "15 min bus".</p>
+        <div class="travel" id="travel"></div>
+      </div>
+
+      <div class="panel sec">
+        <label class="switch" for="p-pub"><input id="p-pub" type="checkbox" checked>Show this property on the website</label>
+        <p class="sub" style="margin:6px 0 0">Untick to hide it without deleting (e.g. while it's being renovated).</p>
+      </div>
+
+      <div class="savebar">
+        <p class="msg err" id="ed-err" role="alert" hidden style="flex:1 1 300px"></p>
+        <span style="flex:1"></span>
+        <button class="btn btn-line" type="button" id="ed-cancel">Cancel</button>
+        <button class="btn btn-gold" type="submit" id="ed-save">Save property</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ENQUIRIES -->
+  <section id="v-enquiries" hidden>
+    <div class="page-head">
+      <div><h1>Enquiries</h1><p>Everyone who filled in the form on the website. Newest first.</p></div>
+      <button class="btn btn-navy" type="button" id="csv-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"></path></svg>Download as spreadsheet</button>
+    </div>
+    <div class="filters">
+      <div class="field"><label for="q-status">Status</label><select id="q-status"><option value="">All</option></select></div>
+      <div class="field" style="flex:1 1 260px"><label for="q-search">Search</label><input id="q-search" type="search" placeholder="Name, phone, property…"></div>
+    </div>
+    <div class="leads" id="leads"></div>
+    <div class="panel empty" id="leads-empty" hidden><h2>No enquiries yet</h2><p>When someone sends the form on the website, they appear here.</p></div>
+  </section>
+
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="config.js"></script>
+<script src="assets/vendor/supabase.js"></script>
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  var C = window.OBF_CONFIG || {}, LM = C.LANDMARKS || [];
+  var FEATURES = ["Wi-Fi", "Furnished", "Washing machine", "Dryer", "Dishwasher", "Desk & chair", "Ensuite", "Shared kitchen", "Living room", "Parking", "Bike storage", "Garden", "Weekly cleaning", "Near bus route"];
+  var STATUSES = [["new", "New"], ["contacted", "Contacted"], ["viewing", "Viewing booked"], ["let", "Let / moved in"], ["closed", "Not suitable"]];
+  var props = [], leads = [], editing = null, original = null, uploadedNow = [];
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function safeUrl(u) { u = String(u || ""); return /^(https:\/\/|data:image\/)/i.test(u) ? u : ""; }
+  function euro(n) { return "€" + Number(n || 0).toLocaleString("en-IE"); }
+  var tt; function toast(msg) { var t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(tt); tt = setTimeout(function () { t.hidden = true; }, 3200); }
+  function fail(e) { console.error(e); toast("Something went wrong: " + ((e && e.message) || "please try again")); }
+  function mapQuery(address, link) {
+    var m = String(link || "").match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    if (m) return m[1] + "," + m[2];
+    var a = address || "Cork";
+    return /cork|T12|T23|T45/i.test(a) ? a : a + ", Cork";
+  }
+
+  /* ---------- views ---------- */
+  var VIEWS = ["login", "properties", "editor", "enquiries"];
+  function show(v) {
+    VIEWS.forEach(function (x) { $("v-" + x).hidden = x !== v; });
+    document.querySelectorAll(".tab").forEach(function (t) { t.setAttribute("aria-current", (t.dataset.view === v || (v === "editor" && t.dataset.view === "properties")) ? "page" : "false"); });
+    window.scrollTo(0, 0);
+  }
+  $("tabs").addEventListener("click", function (e) {
+    var t = e.target.closest(".tab"); if (!t) return;
+    if (t.dataset.view === "enquiries") loadLeads().then(function () { show("enquiries"); });
+    else loadProps().then(function () { show("properties"); });
+  });
+
+  /* ---------- start / sign-in ---------- */
+  function enter(user) {
+    $("tabs").hidden = false;
+    $("who").textContent = user.email || "";
+    $("signout").hidden = OBF.mode !== "online";
+    loadProps().then(function () { show("properties"); });
+    loadLeads();
+  }
+  if (OBF.mode === "demo") {
+    $("banner").hidden = false;
+    $("banner-text").innerHTML = "<strong>Demo mode:</strong> what you add here is saved only in this browser on this computer, so you can try everything out. To publish for real, connect the online database (guide, step 2).";
+  }
+  if (OBF.mode === "offline") {
+    $("banner").hidden = false;
+    $("banner-text").textContent = "Couldn't load the database connection. Check your internet connection and reload the page.";
+  }
+  OBF.getUser().then(function (u) {
+    if (!u) return show("login");
+    return OBF.isAdmin().then(function (ok) { ok ? enter(u) : (OBF.signOut(), show("login")); });
+  }).catch(function () { show("login"); });
+
+  $("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var b = $("login-btn"), er = $("login-err");
+    er.hidden = true; b.disabled = true; b.textContent = "Signing in…";
+    OBF.signIn($("l-email").value.trim(), $("l-pass").value).then(function (u) {
+      return OBF.isAdmin().then(function (ok) {
+        if (!ok) { OBF.signOut(); throw new Error("This account isn't on the admin list. Ask whoever set up the database to add your email."); }
+        enter(u);
+      });
+    }).catch(function (err) {
+      er.textContent = /invalid/i.test(err.message || "") ? "Email or password is wrong." : (err.message || "Couldn't sign in.");
+      er.hidden = false;
+    }).then(function () { b.disabled = false; b.textContent = "Sign in"; });
+  });
+  $("signout").addEventListener("click", function () { OBF.signOut().then(function () { location.reload(); }); });
+
+  /* ---------- property list ---------- */
+  function loadProps() {
+    return OBF.listProperties().then(function (l) { props = l; renderProps(); }).catch(fail);
+  }
+  function renderProps() {
+    var live = props.filter(function (p) { return p.published !== false; });
+    var beds = live.reduce(function (n, p) { return n + Math.max(0, Number(p.beds_free) || 0); }, 0);
+    $("summary").innerHTML =
+      '<div class="sum"><strong>' + beds + '</strong><span>beds free (shown on website)</span></div>' +
+      '<div class="sum"><strong>' + live.length + '</strong><span>properties on website</span></div>' +
+      '<div class="sum"><strong>' + (props.length - live.length) + '</strong><span>hidden</span></div>';
+    $("rows-empty").hidden = props.length > 0;
+    $("rows").innerHTML = props.map(function (p, i) {
+      var cover = p.photos && p.photos[0] && safeUrl(p.photos[0].url);
+      var on = p.published !== false;
+      return '<div class="row">' +
+        '<div class="thumb">' + (cover ? '<img src="' + esc(cover) + '" alt="">' : 'No photo') + '</div>' +
+        '<div class="info"><h3>' + esc(p.name) + '</h3><div class="meta"><span>' + esc(p.area) + '</span><span>' + euro(p.price) + ' / ' + (p.price_period === "week" ? "week" : "month") + '</span><span>' + (Number(p.beds_free) > 0 ? esc(p.beds_free) + " beds free" : "Fully let") + '</span><span>' + ((p.photos || []).length) + ((p.photos || []).length === 1 ? ' photo' : ' photos') + '</span></div></div>' +
+        '<span class="pill ' + (on ? "on" : "off") + '">' + (on ? "On website" : "Hidden") + '</span>' +
+        '<div class="acts">' +
+          '<button class="icon-btn" type="button" data-act="up" data-i="' + i + '" aria-label="Move ' + esc(p.name) + ' up"' + (i === 0 ? " disabled" : "") + '><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg></button>' +
+          '<button class="icon-btn" type="button" data-act="down" data-i="' + i + '" aria-label="Move ' + esc(p.name) + ' down"' + (i === props.length - 1 ? " disabled" : "") + '><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>' +
+          '<button class="btn btn-line btn-sm" type="button" data-act="beds" data-i="' + i + '">Update beds</button>' +
+          '<button class="btn btn-line btn-sm" type="button" data-act="toggle" data-i="' + i + '">' + (on ? "Hide" : "Show") + '</button>' +
+          '<button class="btn btn-navy btn-sm" type="button" data-act="edit" data-i="' + i + '">Edit</button>' +
+          '<button class="btn btn-danger btn-sm" type="button" data-act="del" data-i="' + i + '">Delete</button>' +
+        '</div></div>';
+    }).join("");
+  }
+  function saveOrder() {
+    return Promise.all(props.map(function (p, i) { p.sort_order = i; return OBF.saveProperty(p); }));
+  }
+  $("rows").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-act]"); if (!b) return;
+    var i = +b.dataset.i, p = props[i], act = b.dataset.act;
+    if (act === "edit") return openEditor(p);
+    if (act === "up" || act === "down") {
+      var j = act === "up" ? i - 1 : i + 1;
+      props.splice(j, 0, props.splice(i, 1)[0]);
+      renderProps();
+      return saveOrder().then(function () { toast("Order saved"); }).catch(fail);
+    }
+    if (act === "toggle") {
+      p.published = p.published === false;
+      return OBF.saveProperty(p).then(function () { renderProps(); toast(p.published ? "Now showing on the website" : "Hidden from the website"); }).catch(fail);
+    }
+    if (act === "beds") {
+      var v = prompt("How many beds are free now at " + p.name + "?", p.beds_free);
+      if (v === null) return;
+      v = parseInt(v, 10);
+      if (isNaN(v) || v < 0) return toast("Please enter a number (0 or more)");
+      p.beds_free = v;
+      return OBF.saveProperty(p).then(function () { renderProps(); toast("Beds updated"); }).catch(fail);
+    }
+    if (act === "del") {
+      if (!confirm("Delete " + p.name + " and its photos? This can't be undone.\n\nTip: use Hide instead if you might list it again.")) return;
+      OBF.deleteProperty(p.id).then(function () {
+        OBF.deletePhotos((p.photos || []).map(function (x) { return x.path; }));
+        props.splice(i, 1); renderProps(); toast("Property deleted");
+      }).catch(fail);
+    }
+  });
+  $("add-btn").addEventListener("click", function () { openEditor(null); });
+
+  /* ---------- editor ---------- */
+  $("feats").innerHTML = FEATURES.map(function (f, i) { return '<label class="chk" for="ft' + i + '"><input type="checkbox" id="ft' + i + '" value="' + esc(f) + '">' + esc(f) + '</label>'; }).join("");
+  $("travel").innerHTML = LM.map(function (l) {
+    return '<div class="field"><label for="tr-' + l.key + '">' + esc(l.label) + '</label><input id="tr-' + l.key + '" maxlength="30" placeholder="e.g. 10 min ' + (l.mode === "transit" ? "bus" : l.mode === "driving" ? "drive" : "walk") + '"><a href="#" target="_blank" rel="noopener" data-lm="' + l.key + '">Check on Google Maps ↗</a></div>';
+  }).join("");
+  var F = { name: "p-name", area: "p-area", room_type: "p-type", beds_free: "p-beds", price: "p-price", price_period: "p-period", bills: "p-bills", min_stay: "p-minstay", available_from: "p-from", ber: "p-ber", description: "p-desc", address: "p-address", map_link: "p-maplink" };
+
+  function openEditor(p) {
+    editing = p ? JSON.parse(JSON.stringify(p)) : { photos: [], features: [], travel: {}, published: true, bills: "Bills included", price_period: "month", sort_order: props.length };
+    original = p ? JSON.parse(JSON.stringify(p)) : null;
+    uploadedNow = [];
+    $("ed-title").textContent = p ? "Edit " + p.name : "Add property";
+    Object.keys(F).forEach(function (k) { $(F[k]).value = editing[k] == null ? ($(F[k]).tagName === "SELECT" ? $(F[k]).options[0].value : "") : editing[k]; });
+    $("p-pub").checked = editing.published !== false;
+    document.querySelectorAll("#feats input").forEach(function (c) { c.checked = (editing.features || []).indexOf(c.value) >= 0; });
+    LM.forEach(function (l) { $("tr-" + l.key).value = (editing.travel || {})[l.key] || ""; });
+    $("areas").innerHTML = Array.from(new Set(props.map(function (x) { return x.area; }).filter(Boolean))).map(function (a) { return '<option value="' + esc(a) + '">'; }).join("");
+    document.querySelectorAll(".field.bad").forEach(function (f) { f.classList.remove("bad"); });
+    $("ed-err").hidden = true;
+    renderPhotos(); updateMap(true);
+    show("editor");
+  }
+
+  function renderPhotos() {
+    var list = editing.photos || [];
+    $("photos").innerHTML = list.map(function (ph, i) {
+      return '<div class="ph"><div class="img">' + (ph.url ? '<img src="' + esc(safeUrl(ph.url)) + '" alt="Photo ' + (i + 1) + '">' : "") +
+        (i === 0 && ph.url ? '<span class="cover">Cover</span>' : "") + (ph.loading ? '<span class="loading">Uploading…</span>' : "") + '</div>' +
+        (ph.loading ? "" : '<div class="tools">' +
+          '<button class="icon-btn" type="button" data-ph="left" data-i="' + i + '" aria-label="Move photo ' + (i + 1) + ' earlier"' + (i === 0 ? " disabled" : "") + '><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>' +
+          '<button class="icon-btn" type="button" data-ph="right" data-i="' + i + '" aria-label="Move photo ' + (i + 1) + ' later"' + (i === list.length - 1 ? " disabled" : "") + '><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>' +
+          (i > 0 ? '<button class="btn btn-line btn-sm" type="button" data-ph="cover" data-i="' + i + '">Make cover</button>' : '<span></span>') +
+          '<button class="icon-btn" type="button" data-ph="del" data-i="' + i + '" aria-label="Remove photo ' + (i + 1) + '" style="color:#8A1F1F"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"></path></svg></button>' +
+        '</div>') + '</div>';
+    }).join("");
+  }
+  $("photos").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-ph]"); if (!b) return;
+    var i = +b.dataset.i, l = editing.photos, a = b.dataset.ph;
+    if (a === "left") l.splice(i - 1, 0, l.splice(i, 1)[0]);
+    if (a === "right") l.splice(i + 1, 0, l.splice(i, 1)[0]);
+    if (a === "cover") l.unshift(l.splice(i, 1)[0]);
+    if (a === "del") l.splice(i, 1);
+    renderPhotos();
+  });
+  function addFiles(files) {
+    files = Array.from(files || []).filter(function (f) { return /^image\//.test(f.type); });
+    if (!files.length) return toast("Please choose photo files (JPG or PNG)");
+    files.forEach(function (f) {
+      var slot = { loading: true };
+      editing.photos.push(slot); renderPhotos();
+      OBF.uploadPhoto(f).then(function (res) {
+        slot.url = res.url; slot.path = res.path; delete slot.loading;
+        if (res.path) uploadedNow.push(res.path);
+      }).catch(function (err) {
+        editing.photos.splice(editing.photos.indexOf(slot), 1);
+        toast(err.message || "A photo couldn't be uploaded");
+      }).then(renderPhotos);
+    });
+  }
+  $("file").addEventListener("change", function () { addFiles(this.files); this.value = ""; });
+  var drop = $("drop");
+  ["dragenter", "dragover"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("over"); }); });
+  ["dragleave", "drop"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("over"); }); });
+  drop.addEventListener("drop", function (e) { addFiles(e.dataTransfer.files); });
+
+  var mt;
+  function updateMap(now) {
+    clearTimeout(mt);
+    mt = setTimeout(function () {
+      var q = mapQuery($("p-address").value.trim(), $("p-maplink").value.trim());
+      var has = $("p-address").value.trim() || /@-?\d/.test($("p-maplink").value);
+      $("map-preview").src = "https://www.google.com/maps?q=" + encodeURIComponent(has ? q : "Cork City") + "&z=" + (has ? 15 : 12) + "&output=embed";
+      LM.forEach(function (l) {
+        var a = document.querySelector('[data-lm="' + l.key + '"]');
+        a.href = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(has ? q : "") + "&destination=" + encodeURIComponent(l.query) + "&travelmode=" + (l.mode || "walking");
+      });
+    }, now ? 0 : 700);
+  }
+  $("p-address").addEventListener("input", function () { updateMap(); });
+  $("p-maplink").addEventListener("input", function () { updateMap(); });
+
+  function collect() {
+    var p = editing;
+    Object.keys(F).forEach(function (k) { p[k] = $(F[k]).value.trim(); });
+    p.beds_free = p.beds_free === "" ? "" : Math.max(0, parseInt(p.beds_free, 10) || 0);
+    p.price = p.price === "" ? "" : Math.max(0, Number(p.price) || 0);
+    if (p.map_link && !/^https:\/\//i.test(p.map_link)) p.map_link = "";
+    p.features = Array.from(document.querySelectorAll("#feats input:checked")).map(function (c) { return c.value; });
+    p.travel = {}; LM.forEach(function (l) { var v = $("tr-" + l.key).value.trim(); if (v) p.travel[l.key] = v; });
+    p.published = $("p-pub").checked;
+    p.photos = (p.photos || []).filter(function (x) { return x.url; }).map(function (x) { return { url: x.url, path: x.path || null }; });
+    return p;
+  }
+  function validate(p) {
+    var missing = [];
+    document.querySelectorAll("[data-req]").forEach(function (f) {
+      var k = f.dataset.req, bad = p[k] === "" || p[k] == null;
+      f.classList.toggle("bad", bad);
+      if (bad) missing.push(f.querySelector("label").childNodes[0].textContent.trim());
+    });
+    return missing;
+  }
+  $("ed-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (editing.photos.some(function (x) { return x.loading; })) return toast("Please wait — photos are still uploading");
+    var p = collect(), missing = validate(p), er = $("ed-err");
+    if (missing.length) { er.textContent = "Please fill in: " + missing.join(", ") + "."; er.hidden = false; return; }
+    er.hidden = true;
+    var b = $("ed-save"); b.disabled = true; b.textContent = "Saving…";
+    OBF.saveProperty(p).then(function (saved) {
+      var keep = saved.photos.map(function (x) { return x.path; });
+      var removed = (original && original.photos || []).map(function (x) { return x.path; }).filter(function (x) { return x && keep.indexOf(x) < 0; });
+      OBF.deletePhotos(removed);
+      uploadedNow = [];
+      toast(saved.published ? "Saved — it's now on the website" : "Saved (hidden from the website)");
+      return loadProps().then(function () { show("properties"); });
+    }).catch(function (err) {
+      er.textContent = "Couldn't save: " + ((err && err.message) || "please try again") + (/quota/i.test((err && err.message) || "") ? " (demo storage is full — remove some photos)" : "");
+      er.hidden = false;
+    }).then(function () { b.disabled = false; b.textContent = "Save property"; });
+  });
+  function cancelEdit() {
+    var keep = (original && original.photos || []).map(function (x) { return x.path; });
+    OBF.deletePhotos(uploadedNow.filter(function (x) { return keep.indexOf(x) < 0; }));
+    uploadedNow = [];
+    show("properties");
+  }
+  $("ed-cancel").addEventListener("click", cancelEdit);
+  $("ed-back").addEventListener("click", cancelEdit);
+
+  /* ---------- enquiries ---------- */
+  var statusSel = $("q-status");
+  STATUSES.forEach(function (s) { var o = document.createElement("option"); o.value = s[0]; o.textContent = s[1]; statusSel.appendChild(o); });
+  function loadLeads() {
+    return OBF.listEnquiries().then(function (l) { leads = l || []; renderLeads(); }).catch(function (e) { if (OBF.mode !== "demo") fail(e); });
+  }
+  function fmtDate(s) { var d = new Date(s); return d.toLocaleDateString("en-IE", { day: "numeric", month: "short", year: "numeric" }) + ", " + d.toLocaleTimeString("en-IE", { hour: "2-digit", minute: "2-digit" }); }
+  function waNum(phone) {
+    var d = String(phone || "").replace(/[^\d+]/g, "");
+    if (d.indexOf("+") === 0) return d.slice(1);
+    if (d.indexOf("00") === 0) return d.slice(2);
+    if (d.indexOf("0") === 0) return "353" + d.slice(1);
+    return d;
+  }
+  function filteredLeads() {
+    var st = statusSel.value, q = $("q-search").value.trim().toLowerCase();
+    return leads.filter(function (l) {
+      if (st && (l.status || "new") !== st) return false;
+      if (q && JSON.stringify(l.data || {}).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+  function renderLeads() {
+    var n = leads.filter(function (l) { return (l.status || "new") === "new"; }).length;
+    $("new-count").hidden = !n; $("new-count").textContent = n;
+    var list = filteredLeads();
+    $("leads-empty").hidden = list.length > 0;
+    $("leads").innerHTML = list.map(function (l) {
+      var d = l.data || {}, st = l.status || "new";
+      var rows = [["Phone", d.phone ? '<a href="tel:' + esc(d.phone.replace(/\s/g, "")) + '">' + esc(d.phone) + '</a>' : ""], ["Email", d.email ? '<a href="mailto:' + esc(d.email) + '">' + esc(d.email) + '</a>' : ""],
+        ["Property", esc(d.property)], ["Move-in date", esc(d.move_in_date)], ["Length of stay", esc(d.length_of_stay)], ["People", esc(d.people)], ["Budget", d.budget ? "€" + esc(d.budget) : ""]];
+      return '<article class="lead' + (st === "new" ? " new" : "") + '">' +
+        '<div class="lead-top"><h3>' + esc(d.name || "No name") + '<time>' + esc(fmtDate(l.created_at)) + '</time></h3>' +
+        '<label style="display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600">Status <select data-status="' + esc(l.id) + '">' + STATUSES.map(function (s) { return '<option value="' + s[0] + '"' + (s[0] === st ? " selected" : "") + '>' + s[1] + '</option>'; }).join("") + '</select></label></div>' +
+        '<dl>' + rows.filter(function (r) { return r[1]; }).map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join("") + '</dl>' +
+        (d.message ? '<p class="msgtxt">' + esc(d.message) + '</p>' : "") +
+        '<div class="acts">' +
+          (d.phone ? '<a class="btn btn-gold btn-sm" href="tel:' + esc(d.phone.replace(/\s/g, "")) + '">Call</a><a class="btn btn-line btn-sm" target="_blank" rel="noopener" href="https://wa.me/' + esc(waNum(d.phone)) + '?text=' + encodeURIComponent("Hi " + (d.name || "").split(" ")[0] + ", thanks for your enquiry with OBF Properties about " + (d.property || "a room") + ".") + '">WhatsApp</a>' : "") +
+          (d.email ? '<a class="btn btn-line btn-sm" href="mailto:' + esc(d.email) + '?subject=' + encodeURIComponent("Your room enquiry – OBF Properties") + '">Email</a>' : "") +
+          '<button class="btn btn-danger btn-sm" type="button" data-del="' + esc(l.id) + '">Delete</button>' +
+        '</div></article>';
+    }).join("");
+  }
+  statusSel.addEventListener("change", renderLeads);
+  $("q-search").addEventListener("input", renderLeads);
+  $("leads").addEventListener("change", function (e) {
+    var s = e.target.closest("[data-status]"); if (!s) return;
+    var id = s.dataset.status, v = s.value;
+    OBF.setEnquiryStatus(id, v).then(function () {
+      leads.forEach(function (l) { if (l.id === id) l.status = v; });
+      renderLeads(); toast("Status updated");
+    }).catch(fail);
+  });
+  $("leads").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-del]"); if (!b) return;
+    if (!confirm("Delete this enquiry permanently?")) return;
+    var id = b.dataset.del;
+    OBF.deleteEnquiry(id).then(function () { leads = leads.filter(function (l) { return l.id !== id; }); renderLeads(); toast("Enquiry deleted"); }).catch(fail);
+  });
+  $("csv-btn").addEventListener("click", function () {
+    var cols = [["Date", function (l) { return fmtDate(l.created_at); }], ["Status", function (l) { var s = STATUSES.filter(function (x) { return x[0] === (l.status || "new"); })[0]; return s ? s[1] : l.status; }]]
+      .concat([["Name", "name"], ["Phone", "phone"], ["Email", "email"], ["Property", "property"], ["Move-in date", "move_in_date"], ["Length of stay", "length_of_stay"], ["People", "people"], ["Budget (€)", "budget"], ["Message", "message"]]
+      .map(function (c) { return [c[0], function (l) { return (l.data || {})[c[1]] || ""; }]; }));
+    function cell(v) { v = String(v == null ? "" : v); if (/^[=+\-@]/.test(v)) v = "'" + v; return '"' + v.replace(/"/g, '""') + '"'; }
+    var csv = [cols.map(function (c) { return cell(c[0]); }).join(",")].concat(filteredLeads().map(function (l) { return cols.map(function (c) { return cell(c[1](l)); }).join(","); })).join("\r\n");
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
+    a.download = "OBF-enquiries-" + new Date().toISOString().slice(0, 10) + ".csv";
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+})();
+</script>
+</body>
+</html>
