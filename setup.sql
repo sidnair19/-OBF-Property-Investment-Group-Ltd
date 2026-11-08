@@ -95,4 +95,4 @@ create policy "Admins delete property photos" on storage.objects
   for delete to authenticated using (bucket_id = 'property-photos' and public.is_admin());
 
 -- >>> CHANGE THIS EMAIL to the one you'll sign in with (add more lines for more people) <<<
-insert into public.admins (email) values ('office@obfproperty.ie') on conflict do nothing;
+insert into public.admins (email) values ('siddharthdileep2003@gmail.com') on conflict do nothing;
