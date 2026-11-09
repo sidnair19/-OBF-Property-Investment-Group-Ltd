@@ -7,8 +7,9 @@ window.OBF_CONFIG = {
   // 1. ONLINE DATABASE (Supabase) — see guide, step 2.
   //    While these two are empty, the site runs in DEMO MODE: anything you
   //    add in admin.html is saved only in the browser on this computer.
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://cjxmnipeexmatnubhgbi.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_Uu6vAQxxy6vBvMut92wd0Q_iEbfLQdl",
+
 
   // 2. OPTIONAL EMAIL ALERT for every enquiry (Formspree link) — guide, step 3.
   //    Enquiries always appear in the admin window either way.
